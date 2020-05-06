@@ -1,6 +1,7 @@
 class CartProductsController < ApplicationController
 
 
+
 def create
   @cart_product = CartProduct.new(cart_products_params)
   if @cart_product.save
