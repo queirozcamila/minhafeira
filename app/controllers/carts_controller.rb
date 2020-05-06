@@ -5,7 +5,7 @@ class CartsController < ApplicationController
   end
 
   def update
-    @cart = Cart.new
+    @cart = Cart.find(params[:id])
     @cart.update(cart_params)
   end
 
