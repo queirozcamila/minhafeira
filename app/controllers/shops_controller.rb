@@ -1,28 +1,29 @@
 class ShopsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_shop, only: [:new, :create, :edit, :update, :destroy]
-
-
 
   def index
     @shop = policy_scope(Shop).order(created_at: :desc)
+    authorize @shop
   end
 
   def show; end
 
   def new
     @shop = Shop.new
+    authorize @shop
   end
 
   def create
     @shop = Shop.new(shop_params)
-    @shop.user = current_user #devemos usar essa linha?
+    @shop.user = current_user
+    authorize @shop
     if @shop.save
       redirect_to shop_path(@shop), notice: "Shop created!"
     else
       render :new
     end
+
   end
 
   def edit; end
@@ -44,14 +45,11 @@ class ShopsController < ApplicationController
 
   def shop_find
     @shop = Shop.find(params[:id])
+    authorize @shop
   end
 
   def shop_params
     params.require(:shop).permit(:name, :address, :description, :category, :user)
-  end
-
-  def authorize_shop
-    authorize Shop
   end
 
 end
