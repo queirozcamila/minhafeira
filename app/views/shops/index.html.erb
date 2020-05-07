@@ -11,6 +11,22 @@
         </button>
       </div>
       <% end %>
+      <div class="row">
+        <% Shop.all.each do |shop| %>
+          <div class="cards">
+            <div class="container">
+              <div>
+                <%= image_tag "banca.jpg",height: 200, width: 260 %>
+              </div>
+              <div>
+                <p><%= shop.name %></p>
+                <p><%= shop.description %></p>
+                <p><%= shop.address %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
