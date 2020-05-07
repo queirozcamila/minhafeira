@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-  before_action :shop_find, only: [:show, :edit, :destroy]
+  before_action :shop_find, only: [:show, :edit, :update, :destroy]
 
   def index
     @shop = Shop.all
