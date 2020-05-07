@@ -1,8 +1,12 @@
 class ShopsController < ApplicationController
+
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_shop, only: [:new, :create, :edit, :update, :destroy]
+
+
 
   def index
-    @shop = Shop.all
+    @shop = policy_scope(Shop).order(created_at: :desc)
   end
 
   def show; end
@@ -45,4 +49,9 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:name, :address, :description, :category, :user)
   end
+
+  def authorize_shop
+    authorize @shop
+  end
+
 end
