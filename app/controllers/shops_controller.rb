@@ -1,6 +1,9 @@
 class ShopsController < ApplicationController
-  before_action :shop_find, only: [:show, :edit, :destroy]
+
+  before_action :shop_find, only: [:show, :edit, :update, :destroy]
   before_action :authorize_shop, only: [:new, :create, :edit, :update, :destroy]
+
+
 
   def index
     @shop = policy_scope(Shop).order(created_at: :desc)
