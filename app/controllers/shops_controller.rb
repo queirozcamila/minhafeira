@@ -2,18 +2,20 @@ class ShopsController < ApplicationController
   before_action :shop_find, only: [:show, :edit, :destroy]
 
   def index
-    @shop = Shop.all
+    @shop = policy_scope(Shop).order(created_at: :desc)
   end
 
   def show; end
 
   def new
     @shop = Shop.new
+    authorize @shop
   end
 
   def create
     @shop = Shop.new(shop_params)
     @shop.user = current_user #devemos usar essa linha?
+    authorize @shop
     if @shop.save
       redirect_to shop_path(@shop), notice: "Shop created!"
     else
@@ -45,4 +47,5 @@ class ShopsController < ApplicationController
   def shop_params
     params.require(:shop).permit(:name, :address, :description, :category, :user)
   end
+
 end
