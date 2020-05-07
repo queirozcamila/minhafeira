@@ -51,7 +51,7 @@ class ShopsController < ApplicationController
   end
 
   def authorize_shop
-    authorize @shop
+    authorize Shop
   end
 
 end
