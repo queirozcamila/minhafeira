@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
   before_action :authorize_shop, only: [:new, :create, :edit, :update, :destroy]
 
