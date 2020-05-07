@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
+  before_action :shop_find, only: [:update, :create]
+
 
   def new
     @product = Product.new
@@ -7,14 +9,21 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
+    if @product.save
+      redirect_to shop_path(@shop)
+    else
+      render :new
+    end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-    @product.update(product_params)
+    if @product.update(product_params)
+      redirect_to shop_path(@shop)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -23,11 +32,15 @@ class ProductsController < ApplicationController
 
   private
 
+  def shop_find
+    @shop = Shop.find(params[:shop_id])
+  end
+
   def product_find
     @product = Product.find(params[:id])
   end
 
   def product_params
-    params.require(:products).permit(:name, :description, :price, :category, :photo, :shop_id)
+    params.require(:product).permit(:name, :description, :price, :category, :photo, :shop_id)
   end
 end
