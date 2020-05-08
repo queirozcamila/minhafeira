@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
-  before_action :shop_find, only: [:update, :create]
+  before_action :shop_find, only: [:update]
 
 
   def new
@@ -9,6 +9,8 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @shop = Shop.find(params[:shop_id])
+    authorize @shop
     @product = Product.new(product_params)
     @product.shop_id = params[:shop_id]
     if @product.save
