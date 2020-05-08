@@ -1,14 +1,8 @@
+
       <div  style="text-align: center">
       <h1><strong>Crie sua banca</strong></h1>
       </div>
       <div class="shop-form row justify-content-center">
-        <%= simple_form_for(@shop) do |f| %>
-          <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :description %>
-          <%= f.input :category %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit %>
-        <% end %>
+      <%= render "shared/form" %>
+      <%= link_to "Back", root_path, class: "btn btn-outline-light" %>
       </div>
-

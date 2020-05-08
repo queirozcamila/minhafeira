@@ -1,0 +1,12 @@
+<div class="col-6 m-auto">
+    <div class="shop-form">
+          <%= simple_form_for(@shop) do |f| %>
+            <%= f.input :name %>
+            <%= f.input :address %>
+            <%= f.input :description %>
+            <%= f.input :category %>
+            <%= f.input :photo, as: :file %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
