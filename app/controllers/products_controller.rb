@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
-  before_action :shop_find, only: [:update]
+  before_action :shop_find, only: [:update, :destroy]
 
 
   def new
@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    #redirect_to shop_path(@shop)
     authorize @product
   end
 
