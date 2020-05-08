@@ -3,16 +3,7 @@
     <div class="container">
       <h1><strong>Minha feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
-      <div class="shop-form">
-        <%= simple_form_for(@shop) do |f| %>
-          <%= f.input :name %>
-          <%= f.input :address %>
-          <%= f.input :description %>
-          <%= f.input :category %>
-          <%= f.input :photo, as: :file %>
-          <%= f.submit %>
-        <% end %>
-      </div>
+       <%= render "shared/form" %>
       <%= link_to "Back", root_path, class: "btn btn-outline-light" %>
     </div>
   </div>
