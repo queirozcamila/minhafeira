@@ -36,7 +36,7 @@ class ProductsController < ApplicationController
   private
 
   def shop_find
-    @shop = Shop.find(params[:shop_id])
+    @shop = Shop.find(Product.find(params[:id]).shop_id)
     authorize @shop
   end
 
