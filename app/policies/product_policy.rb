@@ -1,7 +1,11 @@
 class ProductPolicy < ApplicationPolicy
 
+  # def new?
+  #   user.id == Shop.find(record.shop_id).user_id
+  # end
   def create?
-    true
+    user.id == Shop.find(record.shop_id).user_id
+    # user_is_owner_or_admin?
   end
 
   def update?
