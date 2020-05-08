@@ -3,6 +3,7 @@
     <div class="container">
       <h1><strong>Minha feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
+      <%= link_to "Create your shop here!", new_shop_path, class: "btn btn-outline-light" %>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
         <input class="form-control string required" type="text" name="search[query]" id="search_query" />
@@ -22,6 +23,10 @@
                 <p><%= shop.name %></p>
                 <p><%= shop.description %></p>
                 <p><%= shop.address %></p>
+                <%= link_to "See more", shop_path(shop) %>
+                <% if policy(shop).edit? %>
+                  <%= link_to "Update", edit_shop_path(shop) %>
+                <% end %>
               </div>
             </div>
           </div>
