@@ -8,7 +8,7 @@
 
 User.destroy_all
 Shop.destroy_all
-
+Product.destroy_all
 
 user = User.create!(
   email: "user@gmail.com",
@@ -16,7 +16,7 @@ user = User.create!(
  )
 
 
-Shop.create!(
+shop = Shop.create!(
   name: 'Mister orgânicos',
   address: 'Rua Visconde de Pirajá, 120 - Ipanema/Rio de Janeiro',
   description: 'Banca de produtos orgânicos',
@@ -50,3 +50,44 @@ Shop.create!(
   description: 'Banca mais antiga do Rio de Janeiro, vende frutas e legumes',
   user: user
  )
+
+
+Product.create!(
+  name: "Banana",
+  description: "meia duzia de bananas",
+  shop_id: shop.id,
+  price: 3,
+  category: "frutas"
+  )
+
+Product.create!(
+  name: "Brócolis",
+  description: "unidade",
+  shop_id: shop.id,
+  price: 3,
+  category: "vegetal"
+  )
+
+Product.create!(
+  name: "Maçã",
+  description: "2kg",
+  shop_id: shop.id,
+  price: 3,
+  category: "Frutas"
+  )
+
+Product.create!(
+  name: "Cenoura",
+  description: "1kg",
+  shop_id: shop.id,
+  price: 3,
+  category: "legumes"
+  )
+
+Product.create!(
+  name: "Batata",
+  description: "1kg",
+  shop_id: shop.id,
+  price: 3,
+  category: "legumes"
+  )
