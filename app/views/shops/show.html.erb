@@ -1,16 +1,19 @@
-<div class="container">
-  <h1><strong>Minha feira</strong></h1>
-  <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
-  <div class="shop-card" >
-    <p><%= @shop.name.capitalize %></p>
-    <p><%= @shop.description %></p>
-    <p><%= @shop.address %></p>
-    <%= link_to "Delete Shop",
-       shop_path,
-       method: :delete,
-       data: { confirm: "Are you sure?" },
-       class: "btn btn-outline-success" %>
-</div>
+
+      <div  style="text-align: center">
+        <h1><strong>Sua banca</strong></h1>
+      </div>
+      <div class="shop-card row justify-content-center" >
+        <p><%= @shop.name.capitalize %></p>
+        <p><%= @shop.description %></p>
+        <p><%= @shop.address %></p>
+        <%= link_to "Delete Shop",
+           shop_path,
+           method: :delete,
+           data: { confirm: "Are you sure?" },
+           class: "btn btn-outline-light" %>
+      </div>
+
+
 
 <div class="container">
   <% Product.where(shop_id: @shop.id).each do |product| %>
@@ -22,3 +25,4 @@
        class: "btn btn-outline-success" %>
   <% end %>
 </div>
+
