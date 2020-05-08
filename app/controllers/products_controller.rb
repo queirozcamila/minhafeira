@@ -5,12 +5,14 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
+    @product.shop_id = params[:shop_id]
     if @product.save
-      redirect_to shop_path(@shop)
+      redirect_to shops_path
     else
       render :new
     end
@@ -28,16 +30,19 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    authorize @product
   end
 
   private
 
   def shop_find
     @shop = Shop.find(params[:shop_id])
+    authorize @shop
   end
 
   def product_find
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def product_params
