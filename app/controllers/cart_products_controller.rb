@@ -4,8 +4,9 @@ skip_before_action :authenticate_user!
 def create
   # se o current user não tiver cart, cart new
   # se o current user tiver, conecta cart_product ao cart
-
+  (@cart = Cart.new) if current_user.cart.count == 0
   @cart_product = CartProduct.new(cart_products_params)
+  @cart_product.cart = @cart
   if @cart_product.save
     redirect_to cart_path(@cart_product)
   else
