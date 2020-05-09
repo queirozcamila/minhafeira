@@ -2,7 +2,7 @@
     <div class="container">
       <h1><strong>Adicione um produto</strong></h1>
       <div class="shop-form">
-        <%= simple_form_for([Shop.find(params[:shop_id]), @product]) do |f| %>
+        <%= simple_form_for [@shop, @product] do |f| %>
           <%= f.input :name %>
           <%= f.input :price %>
           <%= f.input :description %>
