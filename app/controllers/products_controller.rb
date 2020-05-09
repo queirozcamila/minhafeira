@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.shop_id = params[:shop_id]
     authorize @product
-    if @product.save
+    if @product.save!
       redirect_to shops_path
     else
       render :new
