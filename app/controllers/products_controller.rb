@@ -1,16 +1,20 @@
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
-  before_action :shop_find, only: [:update, :create]
+  before_action :shop_find, only: [:update, :destroy]
 
 
   def new
     @product = Product.new
+    @product.shop_id = params[:shop_id]
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
+    @product.shop_id = params[:shop_id]
+    authorize @product
     if @product.save
-      redirect_to shop_path(@shop)
+      redirect_to shops_path
     else
       render :new
     end
@@ -28,16 +32,20 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
+    #redirect_to shop_path(@shop)
+    authorize @product
   end
 
   private
 
   def shop_find
     @shop = Shop.find(params[:shop_id])
+    authorize @shop
   end
 
   def product_find
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def product_params
