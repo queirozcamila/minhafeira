@@ -1,3 +1,4 @@
+
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
   before_action :shop_find, only: [:update, :new, :destroy]
@@ -15,7 +16,7 @@ class ProductsController < ApplicationController
     @product.shop_id = params[:shop_id]
     authorize @product
     if @product.save
-      redirect_to shops_path
+      redirect_to shop_path(params[:shop_id])
     else
       render :new
     end
@@ -33,8 +34,7 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    #redirect_to shop_path(@shop)
-    authorize @product
+    redirect_to shop_path(@product.shop)
   end
 
   private
