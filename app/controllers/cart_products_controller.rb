@@ -3,10 +3,17 @@ skip_before_action :authenticate_user!
 
 def create
   # se o current user não tiver cart, cart new
-  # se o current user tiver, conecta cart_product ao cart
-  (@cart = Cart.new) if current_user.cart.count == 0
+  # se o current user tiver e o status for fechado, criar novo cart
+  # se o current user tiver cart, use o último
+
+  if current_user.carts.empty? || current_user.carts.last.status == "Fechado"
+    @cart = Cart.new
+    @cart.user = current_user
+    @cart.save
+  else
+    @cart = @curent_user.cart.last
+  end
   @cart_product = CartProduct.new(cart_products_params)
-  @cart_product.cart = @cart
   if @cart_product.save
     redirect_to cart_path(@cart_product)
   else

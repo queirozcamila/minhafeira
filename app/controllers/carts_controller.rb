@@ -2,9 +2,12 @@ class CartsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
+    @carts = current_user.carts
+  end
+
+  def show
     @cart = Cart.find(params[:id])
-    @cart_products = Cart.all.where(cart: @cart)
-    @carts = Cart.all
+    @cart_products = @cart.cart_products
   end
 
   def update
