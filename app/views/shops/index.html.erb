@@ -15,7 +15,10 @@
   </div>
 </div>
 
-<div class="new-div">
+<div class="container">
+  <br><br>
+  <p>Quer adicionar a sua loja? <%= link_to "Clique aqui", new_shop_path %>.</p>
+  <br><br>
   <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
 
     <!--Controls-->
@@ -49,7 +52,7 @@
               <h4 class="card-title font-weight-bold">Primeiro exemplo</h4>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's content.</p>
-              <a class="btn btn-primary btn-md btn-rounded">See more</a>
+              <a class="btn btn-primary btn-md btn-rounded">Veja mais</a>
             </div>
           </div>
         </div>
@@ -65,7 +68,7 @@
               <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
               <p class="card-text"><%= shop.description %></p>
               <p class="card-text"><%= shop.address %></p>
-              <p class="btn btn-primary btn-md btn-rounded" > <%=link_to "See more", shop_path(shop) %> </p>
+              <p class="btn btn-primary btn-md btn-rounded" > <%=link_to "Veja mais", shop_path(shop) %> </p>
             </div>
          </div>
         </div>
