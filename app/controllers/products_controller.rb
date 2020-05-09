@@ -1,7 +1,7 @@
 
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
-  before_action :shop_find, only: [:update, :new, :destroy]
+  before_action :shop_find, only: [:update, :new]
 
 
 
