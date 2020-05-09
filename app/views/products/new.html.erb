@@ -1,8 +1,6 @@
 
-
     <div class="container">
-      <h1><strong>Minha feira</strong></h1>
-      <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
+      <h1><strong>Adicione um produto</strong></h1>
       <div class="shop-form">
         <%= simple_form_for [@shop, @product] do |f| %>
           <%= f.input :name %>
@@ -10,8 +8,7 @@
           <%= f.input :description %>
           <%= f.input :category %>
           <%= f.input :photo, as: :file %>
-          <%= f.submit %>
+          <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-
