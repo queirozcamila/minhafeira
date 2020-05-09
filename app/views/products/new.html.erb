@@ -4,7 +4,7 @@
       <h1><strong>Minha feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
       <div class="shop-form">
-        <%= simple_form_for(new_shop_product_path) do |f| %>
+        <%= simple_form_for [@shop, @product] do |f| %>
           <%= f.input :name %>
           <%= f.input :price %>
           <%= f.input :description %>
