@@ -11,9 +11,14 @@ def create
     @cart.user = current_user
     @cart.save
   else
-    @cart = @curent_user.cart.last
+    @cart = current_user.carts.last
   end
-  @cart_product = CartProduct.new(cart_products_params)
+  # raise
+  @cart_product = CartProduct.new
+  @cart_product.cart_id = @cart.id
+  @cart_product.product_id = params[:product_id]
+  @cart_product.quantity.nil? ? @cart_product.quantity = 1 : @cart_product.quantity += 1
+  authorize @cart_product
   if @cart_product.save
     redirect_to cart_path(@cart_product)
   else
@@ -45,7 +50,7 @@ private
 
 
 def cart_products_params
-  params.require(:cart_product).permit(:cart_id, :product_id, :quantity)
+  params.require(:cart_product).permit(:product_id)
 end
 
 
