@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :shops do
     resources :products, only: [:new, :create]
   end
-  resources :carts, only: [:index, :update] do
+  resources :carts, only: [:index, :show, :update] do
     resources :cart_products, only: [:create, :update, :destroy]
   end
   resources :products, only: [:edit, :update, :destroy]
