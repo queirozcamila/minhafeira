@@ -4,6 +4,15 @@ class ShopsController < ApplicationController
 
   def index
     @shop = policy_scope(Shop).order(created_at: :desc)
+
+    @shops = Shop.geocoded # returns flats with coordinates
+
+    @markers = @shops.map do |shop|
+      {
+        lat: shop.latitude,
+        lng: shop.longitude
+      }
+    end
   end
 
   def show; end

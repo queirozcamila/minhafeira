@@ -20,7 +20,9 @@ shop = Shop.create!(
   name: 'Mister orgânicos',
   address: 'Rua Visconde de Pirajá, 120 - Ipanema/Rio de Janeiro',
   description: 'Banca de produtos orgânicos',
-  user: user
+  user: user,
+  latitude: -22.982234699999996,
+  longitude: -43.199285499999995
  )
 
 Shop.create!(

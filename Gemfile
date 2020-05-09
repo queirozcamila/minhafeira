@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
 
+
+gem 'geocoder'
 # cloudnary
 gem 'cloudinary', '~> 1.12.0'
 # env file
