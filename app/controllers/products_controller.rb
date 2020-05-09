@@ -1,7 +1,11 @@
 
 class ProductsController < ApplicationController
   before_action :product_find, only: [:edit, :update, :destroy]
+<<<<<<< HEAD
   before_action :shop_find, only: [:update, :new]
+=======
+  before_action :shop_find, only: [:new]
+>>>>>>> 1064228677c186903eefacf97255c5028ef3c550
 
 
 
@@ -29,7 +33,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to shop_path(@shop)
+      redirect_to shop_path(@product.shop)
     else
       render :edit
     end
