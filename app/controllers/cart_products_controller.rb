@@ -6,7 +6,7 @@ def create
   # se o current user tiver e o status for fechado, criar novo cart
   # se o current user tiver cart, use o último
 
-  if current_user.carts.empty? || current_user.carts.last.status == "Fechado"
+  if current_user.carts.empty? || current_user.carts.last.status == "closed"
     @cart = Cart.new
     @cart.user = current_user
     @cart.save

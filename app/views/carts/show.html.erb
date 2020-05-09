@@ -1,4 +1,5 @@
 <div class="container">
+  <p>Status: <%= @cart.status %></p>
   <% @cart_products.each do |cart_product| %>
     <div>
       <%= image_tag "banca.jpg", alt: "Produto", height: 50, width: 50, crop: fill %>
@@ -8,4 +9,5 @@
       <p><%= cart_product.quantity %></p>
     </div>
   <% end %>
+  <%= link_to "Finalizar", cart_path(@cart), method: :put, data: { confirm: "Are you sure?" } %>
 </div>
