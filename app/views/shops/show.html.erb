@@ -20,6 +20,11 @@
   <% Product.where(shop_id: @shop.id).each do |product| %>
     <p>Produto:<%= product.name %> </p>
     <p> Preço: <%= product.price %></p>
+    <div>
+      <% if product.photo.attached? %>
+        <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
+    </div>
      <%= link_to 'editar Produto', edit_product_path(product), class: "btn btn-primary"  %>
     <%= link_to "Delete Product",
        product_path(product),

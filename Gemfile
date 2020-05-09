@@ -2,6 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.5'
+
+# cloudnary
+gem 'cloudinary', '~> 1.12.0'
+# env file
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'faker'
 # Gems to authentications and authorizations
 gem 'devise'
