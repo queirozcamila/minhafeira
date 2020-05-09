@@ -10,14 +10,17 @@
            shop_path,
            method: :delete,
            data: { confirm: "Are you sure?" },
-           class: "btn btn-outline-light" %>
+           class: "btn btn-outline-dark" %>
+        <%= link_to 'adicionar Produto', new_shop_product_path(@shop), class: "btn btn-primary"  %>
       </div>
 
 
 
 <div class="container">
   <% Product.where(shop_id: @shop.id).each do |product| %>
-    <p>Produto:<%= product.name %> Preço: <%= product.price %></p>
+    <p>Produto:<%= product.name %> </p>
+    <p> Preço: <%= product.price %></p>
+     <%= link_to 'editar Produto', edit_product_path(product), class: "btn btn-primary"  %>
     <%= link_to "Delete Product",
        product_path(product),
        method: :delete,
