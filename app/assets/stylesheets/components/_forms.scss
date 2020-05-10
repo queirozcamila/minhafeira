@@ -1,0 +1,72 @@
+.new-form {
+  margin-top: 45px;
+}
+
+.group {
+  border: none;
+  input {
+    border: none;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px 15px;
+    color: #636060;
+  }
+  input:focus {
+    background-color: white;
+    border: none;
+    font-size: 24px;
+  }
+  label {
+    color: #f79320;
+    font-weight: bold;
+  }
+}
+
+.form-control {
+    border: none;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 10px;
+    padding: 25px 15px;
+    color: #636060;
+  label {
+    color: #f79320;
+    font-weight: bold;
+  }
+}
+
+.form-control:focus {
+  background-color: white;
+  border: none;
+  box-shadow: 0 4px 2px -2px gray;
+  font-size: 24px;
+}
+
+.form-group {
+  legend {
+    color: #f79320;
+    font-weight: bold;
+  }
+
+}
+.file label {
+    color: #f79320;
+    font-weight: bold;
+  }
+
+.form-check {
+  label {
+    color: #545454;
+  }
+}
+
+.btn {
+  color: white;
+  border-radius: 6px;
+  margin-top: 15px;
+}
+
+.btn input:hover {
+  color: white;
+}
