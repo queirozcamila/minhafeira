@@ -1,86 +1,42 @@
 <div class="banner-div">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);">
-    <div class="container">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60);">
+    <div class= "banner-content">
       <h1><strong>Minha feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-flat">
-        <i class="fas fa-search"></i> Search
-        </button>
+        <input class="form-control string required" type="text" name="search[query]" id="search_query" >
+         <button name="button" type="submit" class="btn btn-flat">
+         <i class="fas fa-search"></i> Search
+         </button>
       </div>
       <% end %>
-    </div>
-  </div>
+     </div>
+   </div>
 </div>
 
 <div class="container">
-  <br><br>
-  <p>Quer adicionar a sua loja? <%= link_to "Clique aqui", new_shop_path %>.</p>
-  <br><br>
-  <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top">
-      <a class="btn-floating" href="#carousel-example-multi" data-slide="prev"><i
-          class="fas fa-chevron-left"></i></a>
-      <a class="btn-floating" href="#carousel-example-multi" data-slide="next"><i
-          class="fas fa-chevron-right"></i></a>
+    <div class="addshop d-flex">
+      <br><br>
+      <p><%= link_to "Quer adicionar a sua loja?", new_shop_path, :class => "btn btn-outline-success"%></p>
+      <br><br>
     </div>
-    <!--/.Controls-->
 
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel-example-multi" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel-example-multi" data-slide-to="1"></li>
-      <li data-target="#carousel-example-multi" data-slide-to="2"></li>
-      <li data-target="#carousel-example-multi" data-slide-to="3"></li>
-      <li data-target="#carousel-example-multi" data-slide-to="4"></li>
-      <li data-target="#carousel-example-multi" data-slide-to="5"></li>
-    </ol>
-    <!--/.Indicators-->
-
-    <div class="carousel-inner v-2" role="listbox">
-
-      <div class="carousel-item active">
-        <div class="col-12 col-md-4">
-          <div class="card mb-2">
-            <img class="card-img-top" src="https://lh3.googleusercontent.com/proxy/29D138HVIzCd2tY6KdNXkIHLUAZc1fVvEdb9ltfamKVQ3nigVpsShtC6AJQSnKbEx1DKtyX2W_hPHTNGA_bnvTRPjiQPiuA19MIhgokiQLvcGZ7tCZDEZJy4f1pu_3GzUkgecFLraQXx_1tAfVL0vU7YhPMH7EAS"
-              alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title font-weight-bold">Primeiro exemplo</h4>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's content.</p>
-              <a class="btn btn-primary btn-md btn-rounded">Veja mais</a>
-            </div>
-          </div>
-        </div>
-      </div>
-
+    <div class="cards d-flex">
      <% Shop.all.each do |shop| %>
-      <div class="carousel-item">
-        <div class="col-12 col-md-4">
-          <div class="card mb-2">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/img (36).jpg"
-              alt="Card image cap">
-            <div class="card-body">
-              <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
-              <p class="card-text"><%= shop.description %></p>
-              <p class="card-text"><%= shop.address %></p>
-              <p class="btn btn-primary btn-md btn-rounded" > <%=link_to "Veja mais", shop_path(shop) %> </p>
-            </div>
-         </div>
+        <div class="card-body">
+          <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
+          <p class="card-text"><%= shop.description %></p>
+          <p class="card-text"><%= shop.address %></p>
+          <p class="btn btn-primary btn-md btn-rounded" > <%=link_to "Veja mais", shop_path(shop) %> </p>
         </div>
-      </div>
-     <% end %>
+      <% end %>
     </div>
-  </div>
-</div>
 
-<div>
-  <div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    <div>
+      <div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    </div>
 </div>
