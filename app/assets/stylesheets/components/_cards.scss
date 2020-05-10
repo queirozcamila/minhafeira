@@ -1,24 +1,27 @@
-.card-category {
-  background-size: cover;
-  background-position: center;
-  background-color: rgba(232, 232, 232, 0.1);
-  height: 200px;
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 4px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin: 20px;
+.cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 8px;
 }
 
+.card{
+ margin: 4px 8px;
+ background-color: transparent;
+ border-color: $green-feira;
+ border-radius: 4px;
+ justify-items: center;
+ box-shadow: 0.8px 0.8px 15px rgba(100,100,100,0.2);
+}
 
-.card-category h3{
-  color:white;
-  font-size: 20px;
-  background-size: cover;
+.card:hover{
+  background-color: $green-feira;
+  opacity: 0.8;
+}
+
+.card-body{
+  display:grid;
+  background-color:transparent;
+  justify-content: center;
   text-align: center;
 }
 
@@ -27,22 +30,59 @@
   text-decoration: none;
 }
 
-.cards {
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 70px 0px;
-  grid-gap: 3px;
-  justify-items: center;
-  background-color: rgb(250,250,250);
-  width: 320px;
-  height: 400px;
-  box-shadow: 0.8px 0.8px 15px rgba(150,150,150,0.2);
-  padding: 12px;
-  margin: 24px;
-  border-radius: 4px;
-  p {
-    color: black;
-
-  }
+.card-body a:hover {
+  font-weight:bold;
 }
+
+.card-text-address{
+  font-size: 12px;
+}
+
+// .card-category {
+//   background-size: cover;
+//   background-position: center;
+//   background-color: transparent;
+//   height: 200px;
+//   width: auto;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font-weight: bold;
+//   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//   border-radius: 4px;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   margin: 20px;
+// }
+
+
+// .card-category h3{
+//   color:white;
+//   font-size: 20px;
+//   background-size: cover;
+//   text-align: center;
+// }
+
+
+
+
+
+
+// .cards {
+//   display: grid;
+//   justify-items: center;
+//   grid-template-columns: repeat(1, 1fr);
+//   grid-template-rows: 70px 0px;
+//   grid-gap: 3px;
+//   justify-items: center;
+//   background-color: rgb(250,250,250);
+//   width: 320px;
+//   height: 400px;
+//   box-shadow: 0.8px 0.8px 15px rgba(150,150,150,0.2);
+//   padding: 12px;
+//   margin: 24px;
+//   border-radius: 4px;
+//   p {
+//     color: black;
+
+//   }
+// }
