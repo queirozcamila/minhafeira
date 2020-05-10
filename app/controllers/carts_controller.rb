@@ -10,6 +10,8 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart_products = @cart.cart_products
     authorize @cart
+    @cart_sum = CartProduct.where(cart_id: @cart.id)
+    @cart_sum = @cart_sum.group_by { |prod| prod.product_id}
   end
 
   def update

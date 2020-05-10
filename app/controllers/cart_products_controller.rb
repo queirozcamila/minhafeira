@@ -6,16 +6,21 @@ def create
   # se o current user tiver e o status for fechado, criar novo cart
   # se o current user tiver cart, use o último
 
-  if current_user.carts.empty? || current_user.carts.last.status == "closed"
+  if Cart.find_by(user_id: current_user.id).nil? || current_user.carts.last.status == "closed"
     @cart = Cart.new
     @cart.user = current_user
     @cart.save
   else
-    @cart = @curent_user.cart.last
+    @cart = current_user.carts.last
   end
-  @cart_product = CartProduct.new(cart_products_params)
+  # raise
+  @cart_product = CartProduct.new
+  @cart_product.cart_id = @cart.id
+  @cart_product.product_id = params[:product_id]
+  @cart_product.quantity = 1
+  authorize @cart_product
   if @cart_product.save
-    redirect_to cart_path(@cart_product)
+    redirect_to cart_path(@cart)
   else
     render 'new'
   end
@@ -27,9 +32,14 @@ def edit
 end
 
 def update
-  @cart_product = CartProduct.find(params[:id])
-  @cart_product.update(cart_product_params)
-  redirect_to shop_path(@shop)
+  # raise
+  @cart_product = CartProduct.find_by(product_id: params[:product_id])
+  # @cart_product = CartProduct.find(params[:id])
+  @cart_product.quantity += 1
+  authorize @cart_product
+  @cart_product.save
+  # @cart_product.update(cart_product_params)
+  redirect_to cart_path(@cart_product.cart_id)
 end
 
 
@@ -45,7 +55,7 @@ private
 
 
 def cart_products_params
-  params.require(:cart_product).permit(:cart_id, :product_id, :quantity)
+  params.require(:cart_product).permit(:product_id)
 end
 
 
