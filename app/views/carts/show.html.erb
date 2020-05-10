@@ -1,12 +1,12 @@
 <div class="container">
   <p>Status: <%= @cart.status %></p>
-  <% @cart_products.each do |cart_product| %>
+  <% @cart_sum.each do |cart_product| %>
     <div>
       <%= image_tag "banca.jpg", alt: "Produto", height: 50, width: 50, crop: :fill %>
     </div>
     <div>
-      <p><%= cart_product.product.name %> - R$ <%= cart_product.product.price %>,00 / cada</p>
-      <p><%= cart_product.quantity %></p>
+      <p><%= cart_product[1][0].product.name %> - R$ <%= cart_product[1][0].product.price %>,00 / cada</p>
+      <p>Quantidade: <%= cart_product[1].length %></p>
     </div>
   <% end %>
   <%= link_to "Finalizar", cart_path(@cart), method: :put, data: { confirm: "Are you sure?" } %>
