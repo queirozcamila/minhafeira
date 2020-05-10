@@ -20,7 +20,7 @@ def create
   @cart_product.quantity = 1
   authorize @cart_product
   if @cart_product.save
-    redirect_to cart_path(@cart)
+    redirect_to shop_path(@cart_product.product.shop)
   else
     render 'new'
   end
