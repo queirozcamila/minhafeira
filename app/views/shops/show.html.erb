@@ -26,17 +26,10 @@
       <% end %>
     </div>
     <div>
-      <% if Cart.find_by(user_id: current_user.id).status == "open" %>
-        <%= link_to 'Adicionar',
-            product_cart_product_path(product),
-            method: :patch,
-            class: "btn btn-primary" %>
-      <% else %>
-        <%= link_to 'Comprar',
-            product_cart_products_path(product),
-            method: :post,
-            class: "btn btn-primary" %>
-      <% end %>
+      <%= link_to 'Comprar',
+          product_cart_products_path(product),
+          method: :post,
+          class: "btn btn-primary" %>
       <%= link_to 'editar Produto',
           edit_product_path(product),
           class: "btn btn-primary"  %>
