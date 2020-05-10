@@ -4,6 +4,9 @@
   padding: 150px 0;
 }
 
+.banner-content{
+  margin-left: 50px;
+}
 
 .banner h1 {
   margin: 0;
@@ -18,4 +21,9 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.search-form-control{
+  width: 500px;
+  // height: 32px;
 }
