@@ -10,8 +10,14 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     @cart_products = @cart.cart_products
     authorize @cart
-    @cart_sum = CartProduct.where(cart_id: @cart.id)
-    @cart_sum = @cart_sum.group_by { |prod| prod.product_id}
+    prods = CartProduct.where(cart_id: @cart.id)
+    @cart_sum = prods.group_by { |prod| prod.product_id}
+    # raise
+    @total_bill = []
+    prods.each do |product|
+       @total_bill << product.product.price
+    end
+    @total_bill = @total_bill.sum
   end
 
   def update
