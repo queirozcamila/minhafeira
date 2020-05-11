@@ -18,3 +18,29 @@
   border-radius: 4px;
   margin-left: 60px;
 }
+
+
+.btn-add-shop2 {
+  flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 100% auto;
+  color: white;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 4px;
+  margin-top: 6px;
+  margin-inline-end: 7px;
+  padding: 4px;
+ }
+
+.btn-add-shop2:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.btn-add-shop2 {
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+
+

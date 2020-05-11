@@ -1,0 +1,119 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.container{
+   margin-block-start: 2em;
+   width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+.login {
+  background-color: #7CBB59;
+
+}
+
+h2 {
+  margin-block-start: 127px;
+  text-align: center;
+  color: white;
+}
+
+.form-button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form-button:hover,.form button:active,.form button:focus {
+  background: #43A047;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+
+
+
+.inputs {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+
+  -webkit-text-fill-color: gray;
+  -webkit-box-shadow: 0 0 0px 1000px #f2f2f2 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  border-radius: 0px;
+  font-family: "Roboto", sans-serif;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.container a {
+  color: #4CAF50;
+  text-decoration: none;
+  text-align: center;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+}
+
+
+
+.form-check-input {
+    position: absolute;
+    margin-top: 1.3rem;
+    margin-left: -1.25rem;
+}
+
+.form-control {
+    border: none;
+    overflow: hidden;
+    background-color: #F2F2F2;
+    border-radius: 0px;
+    padding: 25px 15px;
+    color: #636060;
+    font-family: "Roboto", sans-serif;
+}
+
+a {
+color: white
+}
