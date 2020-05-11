@@ -15,7 +15,7 @@
    </div>
 </div>
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards">
@@ -31,7 +31,7 @@
         <% end %>
       </div>
     </div>
-    <% (1..4).each do |e| %>
+    <% (1..(Shop.all.length-4)).each do |e| %>
       <% f = e + 3 %>
       <div class="carousel-item">
         <div class="cards">
