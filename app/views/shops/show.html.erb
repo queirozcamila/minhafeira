@@ -1,57 +1,63 @@
-<div  style="text-align: center">
-  <h1><strong><%= @shop.name.capitalize %></strong></h1>
-</div>
-<div>
-  <div class="shop-card row justify-content-center" >
+<div style="margin-top: 80px">
+  <div  style="text-align: center">
+    <h1><strong><%= @shop.name.capitalize %></strong></h1>
     <div>
       <p><%= @shop.description %>.</p>
       <p>  <%= @shop.address %></p>
     </div>
   </div>
-  <div class="shop-card row justify-content-center">
-    <% if policy(@shop).edit?  %>
+</div>
+
+<div class="shop-card row justify-content-center">
+  <% if policy(@shop).edit?  %>
     <%= link_to "Delete Shop",
        shop_path,
        method: :delete,
        data: { confirm: "Are you sure?" },
        class: "btn btn-outline-dark" %>
-      <%= link_to 'Adicionar Produto', new_shop_product_path(@shop), class: "btn btn-primary" %>
-    <% end %>
-    <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
-      <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
-    <% end %>
-  </div>
-</div>
-
-<div class="container">
-  <% Product.where(shop_id: @shop.id).each do |product| %>
-    <p>Produto:<%= product.name %> </p>
-    <p> Preço: <%= product.price %></p>
-    <div>
-      <% if product.photo.attached? %>
-        <%= cl_image_tag product.photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
-    </div>
-    <div>
-      <%= link_to 'Comprar',
-          product_cart_products_path(product),
-          method: :post,
-          class: "btn btn-primary" %>
-
-      <% if policy(product).edit? %>
-        <%= link_to 'editar Produto',
-            edit_product_path(product),
-            class: "btn btn-outline-primary"  %>
-      <% end %>
-
-      <% if policy(product).destroy? %>
-        <%= link_to "Delete Product",
-           product_path(product),
-           method: :delete,
-           data: { confirm: "Are you sure?" },
-           class: "btn btn-outline-success" %>
-      <% end %>
-    </div>
+    <%= link_to 'Adicionar Produto', new_shop_product_path(@shop), class: "btn btn-primary" %>
   <% end %>
 </div>
 
+<div class="d-flex justify-content-center" style="margin: 8px">
+  <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
+    <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+  <% end %>
+</div>
+
+<div class="cards">
+   <% @shop.products.each do |product| %>
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <% if product.photo.attached? %>
+            <%= cl_image_tag product.photo.key, height: 160, width: 240, crop: :fill %>
+          <% end %>
+        </div>
+        <h4 class="card-title font-weight-bold"><%= product.name %></h4>
+        <p class="card-text"><%= product.description %></p>
+        <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
+        <div>
+          <%= link_to 'Comprar',
+              product_cart_products_path(product),
+              method: :post,
+              class: "btn btn-primary" %>
+
+          <% if policy(product).edit? %>
+            <%= link_to 'editar Produto',
+                edit_product_path(product),
+                class: "btn btn-outline-primary"  %>
+          <% end %>
+
+          <% if policy(product).destroy? %>
+            <%= link_to "Delete Product",
+               product_path(product),
+               method: :delete,
+               data: { confirm: "Are you sure?" },
+               class: "btn btn-outline-success" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
