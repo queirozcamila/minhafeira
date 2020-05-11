@@ -3,6 +3,8 @@ class ShopsController < ApplicationController
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
 
   def index
+
+
     @shop = policy_scope(Shop).order(created_at: :desc)
 
     @shops = Shop.geocoded # returns flats with coordinates
