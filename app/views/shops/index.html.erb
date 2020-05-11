@@ -1,7 +1,7 @@
 <div class="banner-div">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60);">
     <div class= "banner-content">
-      <h1><strong>Minha feira</strong></h1>
+      <h1><strong>Minha Feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
       <%= simple_form_for :search, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
@@ -18,20 +18,22 @@
 <div class="container">
     <div class="addshop d-flex">
       <br><br>
-      <p><%= link_to "Quer adicionar a sua loja?", new_shop_path, :class => "btn btn-outline-success"%></p>
+      <p class = "btn-add-shop"><%= link_to "Quer adicionar a sua loja?", new_shop_path%></p>
       <br><br>
     </div>
 
-    <div class="cards d-flex">
+  <div class="cards">
      <% Shop.all.each do |shop| %>
+      <div class="card">
         <div class="card-body">
           <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
           <p class="card-text"><%= shop.description %></p>
-          <p class="card-text"><%= shop.address %></p>
-          <p class="btn btn-primary btn-md btn-rounded" > <%=link_to "Veja mais", shop_path(shop) %> </p>
+          <p class="card-text-address"><%= shop.address %></p>
+          <p class="btn-see-more" > <%=link_to "Veja mais", shop_path(shop) %> </p>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 
     <div>
       <div id="map"
