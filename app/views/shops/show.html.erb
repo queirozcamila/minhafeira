@@ -21,8 +21,10 @@
 
 <div class="d-flex justify-content-center" style="margin: 8px">
   <% if current_user %>
-    <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
-      <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+    <% if Cart.where(user_id: current_user.id).last %>
+      <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
+        <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+      <% end %>
     <% end %>
   <% end %>
 </div>
