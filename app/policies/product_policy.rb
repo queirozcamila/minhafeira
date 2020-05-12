@@ -14,6 +14,6 @@ class ProductPolicy < ApplicationPolicy
 
   private
   def user_is_owner_or_admin?
-    Shop.find(record.shop_id).user_id == user.id || user.admin
+    Shop.find(record.shop_id).user_id == user.id || user.admin if user
   end
 end
