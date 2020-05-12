@@ -74,3 +74,33 @@
 .btn input:hover {
   color: white;
 }
+
+.container.form-new-shop {
+  width: 40%;
+  margin-bottom: 3em;
+}
+
+.newform-title {
+  margin-top: 7em;
+}
+
+.newform-title h1 {
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  font-size: 60px;
+}
+
+.new-banca {
+background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1546548970-71785318a17b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1560&q=80");
+}
+
+
+.group input {
+  border: none;
+  overflow: hidden;
+  background-color: #F2F2F2;
+  padding: 25px 15px;
+  color: #636060;
+  border-radius: 1px;
+}
