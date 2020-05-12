@@ -25,7 +25,11 @@
               <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
               <p class="card-text"><%= shop.description %></p>
               <p class="card-text-address"><%= shop.address %></p>
-              <p class="btn-see-more" > <%=link_to "Veja mais", shop_path(shop), method: :get %> </p>
+              <div>
+                <%=link_to "Veja mais",
+                   shop_path(shop),
+                   class: "btn-see-more" %>
+              </div>
             </div>
           </div>
         <% end %>
@@ -41,7 +45,11 @@
                 <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
                 <p class="card-text"><%= shop.description %></p>
                 <p class="card-text-address"><%= shop.address %></p>
-                <div class="btn-see-more"><p> <%=link_to "Veja mais", shop_path(shop), method: :get %> </p></div>
+                <div >
+                  <%=link_to "Veja mais",
+                     shop_path(shop),
+                     class: "btn-see-more" %>
+                </div>
               </div>
             </div>
           <% end %>
