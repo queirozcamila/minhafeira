@@ -1,12 +1,13 @@
-.page-footer{
-  border-top: 1px solid #333;
-  bottom: 0;
-  left: 0;
-  height: 40px;
-  width: 100%;
-  padding: 128px;
-  background-color: $green-feira;
-  margin-block-start: 567px;
+.page-footer {
+    bottom: 0;
+    left: 0;
+    height: 0px;
+    width: 100%;
+    padding: 40px;
+    background-image: linear-gradient(315deg, #a8dadc 51%, #a1c4fd 100%);
+    font-color: white;
 }
 
-
+.page-footer p {
+  color: white;
+}
