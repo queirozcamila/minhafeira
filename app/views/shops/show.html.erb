@@ -11,7 +11,7 @@
 <div class="shop-card row justify-content-center">
   <% if policy(@shop).edit?  %>
     <%= link_to "Delete Shop",
-       shop_path,
+       shop_path(@shop),
        method: :delete,
        data: { confirm: "Are you sure?" },
        class: "btn btn-outline-dark" %>
@@ -20,8 +20,12 @@
 </div>
 
 <div class="d-flex justify-content-center" style="margin: 8px">
-  <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
-    <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+  <% if current_user %>
+    <% if Cart.where(user_id: current_user.id).last %>
+      <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
+        <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+      <% end %>
+    <% end %>
   <% end %>
 </div>
 
@@ -38,11 +42,12 @@
         <p class="card-text"><%= product.description %></p>
         <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
         <div>
+          <% if current_user %>
           <%= link_to 'Comprar',
               product_cart_products_path(product),
               method: :post,
               class: "btn btn-primary" %>
-
+          <% end %>
           <% if policy(product).edit? %>
             <%= link_to 'editar Produto',
                 edit_product_path(product),

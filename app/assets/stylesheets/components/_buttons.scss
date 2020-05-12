@@ -16,7 +16,10 @@
   background-color:$green-feira;
   width:100px;
   border-radius: 4px;
-  margin-left: 60px;
+  margin: 0 auto;
+  padding: 4px 4px;
+  height: 24px;
+  vertical-align: center;
 }
 
 
@@ -43,4 +46,6 @@
   background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
 }
 
-
+.nav-item a{
+  text-decoration: none;
+}

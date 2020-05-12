@@ -12,12 +12,15 @@ class ShopsController < ApplicationController
       {
         lat: shop.latitude,
         lng: shop.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { shop: shop })
+        infoWindow: render_to_string(partial: "info_window", locals: { shop: shop }),
+        image_url: helpers.asset_url('minha_feira_navbar.png')
       }
     end
   end
 
-  def show; end
+  def show;
+    authorize @shop
+  end
 
   def new
     @shop = Shop.new
