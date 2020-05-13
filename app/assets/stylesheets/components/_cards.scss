@@ -1,12 +1,15 @@
 .cards{
-  display:grid;
+  display:flex;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 8px;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 
 .card{
  margin: 4px 8px;
  background-color: transparent;
+ width: 290px;
  border-color: $green-feira;
  border-radius: 4px;
  justify-items: center;
