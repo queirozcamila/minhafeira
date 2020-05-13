@@ -38,10 +38,11 @@
             <div>
               <% if product.photo.attached? %>
                 <%= cl_image_tag product.photo.key, height: 160, width: 240, crop: :fill %>
+                <p></p>
               <% end %>
             </div>
-            <h4 class="card-title font-weight-bold"><%= product.name %></h4>
-            <p class="card-text"><%= product.description %></p>
+            <h4 class="card-title font-weight-bold"><%= product.name.capitalize %></h4>
+            <p class="card-text"><%= product.description.capitalize %></p>
             <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
             <div>
               <% if current_user %>
