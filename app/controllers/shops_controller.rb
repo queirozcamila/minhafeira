@@ -3,12 +3,15 @@ class ShopsController < ApplicationController
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
 
   def index
-
-
     @shop = policy_scope(Shop).order(created_at: :desc)
 
-    @shops = Shop.geocoded # returns flats with coordinates
+    if params[:query].present?
+      @shops = Shop.global_search(params[:query])
+    else
+      @shops = Shop.all
+    end
 
+    @shops = @shops.geocoded # returns flats with coordinates
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,
@@ -17,6 +20,7 @@ class ShopsController < ApplicationController
         image_url: helpers.asset_url('minha_feira_navbar.png')
       }
     end
+    # raise
   end
 
   def show;
