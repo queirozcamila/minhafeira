@@ -36,10 +36,11 @@
         <div>
           <% if product.photo.attached? %>
             <%= cl_image_tag product.photo.key, height: 160, width: 240, crop: :fill %>
+            <p></p>
           <% end %>
         </div>
-        <h4 class="card-title font-weight-bold"><%= product.name %></h4>
-        <p class="card-text"><%= product.description %></p>
+        <h4 class="card-title font-weight-bold"><%= product.name.capitalize %></h4>
+        <p class="card-text"><%= product.description.capitalize %></p>
         <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
         <div>
           <% if current_user %>
@@ -51,7 +52,7 @@
           <% if policy(product).edit? %>
             <%= link_to 'editar Produto',
                 edit_product_path(product),
-                class: "btn btn-primary"  %>
+                class: "btn btn-outline-primary"  %>
           <% end %>
 
           <% if policy(product).destroy? %>
@@ -59,10 +60,11 @@
                product_path(product),
                method: :delete,
                data: { confirm: "Are you sure?" },
-               class: "btn btn-primary" %>
+               class: "btn btn-outline-success" %>
           <% end %>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
