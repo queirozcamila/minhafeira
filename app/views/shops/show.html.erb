@@ -14,7 +14,7 @@
        shop_path(@shop),
        method: :delete,
        data: { confirm: "Are you sure?" },
-       class: "btn btn-outline-dark" %>
+       class: "btn btn-primary" %>
     <%= link_to 'Adicionar Produto', new_shop_product_path(@shop), class: "btn btn-primary" %>
   <% end %>
 </div>
@@ -36,10 +36,11 @@
         <div>
           <% if product.photo.attached? %>
             <%= cl_image_tag product.photo.key, height: 160, width: 240, crop: :fill %>
+            <p></p>
           <% end %>
         </div>
-        <h4 class="card-title font-weight-bold"><%= product.name %></h4>
-        <p class="card-text"><%= product.description %></p>
+        <h4 class="card-title font-weight-bold"><%= product.name.capitalize %></h4>
+        <p class="card-text"><%= product.description.capitalize %></p>
         <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
         <div>
           <% if current_user %>
@@ -66,3 +67,4 @@
     </div>
   <% end %>
 </div>
+

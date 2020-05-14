@@ -76,8 +76,17 @@
 }
 
 .container.form-new-shop {
-  width: 40%;
+  width: 100vh;
   margin-bottom: 3em;
+}
+
+.container-form{
+    -webkit-margin-before: 2em;
+    margin-block-start: 2em;
+    width: 30%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 
 .newform-title {
@@ -103,4 +112,62 @@ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https:/
   padding: 25px 15px;
   color: #636060;
   border-radius: 1px;
+}
+
+
+.new-product {
+ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1569976711256-bdfd440863c6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1912&q=80");
+}
+
+.edit-product {
+ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+}
+
+// FORMS SET UP GENERAL
+
+.container-form {
+    width: 40%;
+    margin-bottom: 3em;
+    -webkit-margin-before: 2em;
+    margin-block-start: 2em;
+     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.form-title {
+  margin-top: 7em;
+}
+
+.form-title h1 {
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  text-shadow: 2px 2px 8px black;
+  font-size: 60px;
+}
+
+.simple_form.edit_user{
+      width: 40%;
+    margin-bottom: 3em;
+    -webkit-margin-before: 2em;
+    margin-block-start: 2em;
+     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.simple_form.edit_user a {
+  color: #7CBB59;
+}
+
+.edit-user{
+  background-color: #7CBB59;
 }
