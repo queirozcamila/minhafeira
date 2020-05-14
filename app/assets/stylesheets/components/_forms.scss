@@ -125,7 +125,7 @@ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https:/
 
 // FORMS SET UP GENERAL
 
-.container-form{
+.container-form {
     width: 40%;
     margin-bottom: 3em;
     -webkit-margin-before: 2em;
@@ -148,4 +148,26 @@ background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https:/
   color: white;
   text-shadow: 2px 2px 8px black;
   font-size: 60px;
+}
+
+.simple_form.edit_user{
+      width: 40%;
+    margin-bottom: 3em;
+    -webkit-margin-before: 2em;
+    margin-block-start: 2em;
+     background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+.simple_form.edit_user a {
+  color: #7CBB59;
+}
+
+.edit-user{
+  background-color: #7CBB59;
 }
