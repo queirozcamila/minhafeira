@@ -1,13 +1,21 @@
 <div class="banner-div">
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1516211697506-8360dbcfe9a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=60);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1487376480913-24046456a727?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);">
     <div class= "banner-content">
       <h1><strong>Minha Feira</strong></h1>
       <p>Trazendo toda a saúde da sua feira para a sua casa.</p>
-      <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+     <!--  <%= simple_form_for :query, url: root_path, method: :get do |f| %>
       <div class="search-form-control form-group">
         <input class="form-control string required" type="text" name="search[query]" id="search_query" >
          <button name="button" type="submit" class="btn btn-flat">
-         <i class="fas fa-search"></i> Search
+         <i class="fas fa-search"></i> Search -->
+         <%= form_tag root_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Pesquise uma banca"
+            %>
+            <%= submit_tag "Busca", class: "btn btn-primary" %>
+          <% end %>
          </button>
       </div>
       <% end %>
@@ -15,11 +23,13 @@
    </div>
 </div>
 
+
+
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <div class="cards">
-        <% Shop.all[0..3].each do |shop| %>
+        <% @shops[0..3].each do |shop| %>
           <div class="card">
             <div class="card-body">
               <h4 class="card-title font-weight-bold"><%= shop.name %></h4>
@@ -35,11 +45,11 @@
         <% end %>
       </div>
     </div>
-    <% (1..(Shop.all.length-4)).each do |e| %>
+    <% (1..(@shops.length-4)).each do |e| %>
       <% f = e + 3 %>
       <div class="carousel-item">
         <div class="cards">
-          <% Shop.all[e..f].each do |shop| %>
+          <% @shops[e..f].each do |shop| %>
             <div class="card">
               <div class="card-body">
                 <h4 class="card-title font-weight-bold"><%= shop.name %></h4>

@@ -12,15 +12,25 @@
       <li class="nav-item active">
          <p class = "btn-add-shop2"><%= link_to "Quer adicionar a sua loja?", new_shop_path%></p>
       </li>
+      <li>
+      <div class="d-flex justify-content-center" style="margin: 8px">
+        <% if current_user %>
+          <% if Cart.where(user_id: current_user.id).last %>
+            <%= link_to cart_path(Cart.where(user_id: current_user.id).last.id), class: "cart-brand" do %>
+             <%= image_tag "Shopping_cart_icon.svg.png", width: 40 %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      </li>
       <% if user_signed_in? %>
           <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
+            <%= link_to "Editar usuário",  edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
-        </li>
+         </li>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
@@ -29,3 +39,6 @@
     </ul>
   </div>
 </div>
+
+
+
