@@ -1,7 +1,9 @@
-
-    <div class="container">
-      <h1><strong>Adicione um produto</strong></h1>
-      <div class="shop-form">
+<body class="new-product">
+ <div class= "form-title" style="text-align: center">
+    <h1><strong>Adicione um produto</strong></h1>
+   </div>
+    <div class="container-form">
+       <div class="shop-form">
         <%= simple_form_for [@shop, @product] do |f| %>
           <%= f.input :name %>
           <%= f.input :price %>
@@ -12,3 +14,4 @@
         <% end %>
       </div>
     </div>
+</body>
