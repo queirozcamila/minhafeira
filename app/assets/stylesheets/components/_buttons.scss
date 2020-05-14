@@ -54,3 +54,13 @@ input.btn.btn-success {
   width: 80%;
   margin-inline-start: 3em;
 }
+
+.btn-primary {
+    color: #fff;
+    background-color: #87BD39;
+    border-color: #87BD39;
+    margin-bottom: 1em;
+}
+.btn-primary:hover,.btn-primary:active,.btn-primary:focus {
+  background: #43A047;
+}
