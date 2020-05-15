@@ -13,20 +13,21 @@ Product.destroy_all
 user_one = User.create!(
   email: "user@gmail.com",
   password: "123456789",
-  # remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500924/punk_user_zu5n2y.jpg"
+  remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500924/punk_user_zu5n2y.jpg"
   )
 
 user_two = User.create!(
   email: "user2@gmail.com",
   password: "123456789",
-  # remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500923/ruth_user_mumt6r.jpg"
+  remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500923/ruth_user_mumt6r.jpg"
 )
 
-shop = Shop.create!(
+Shop.create!(
   name: 'Mister orgânicos',
   address: 'Rua Visconde de Pirajá, 120 - Ipanema/Rio de Janeiro',
   description: 'Banca de produtos orgânicos',
   user: user_two,
+  category: "Legumes",
   remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589391225/ma99zoxw4ceoi1252c2hbagefo2i.jpg"
   # latitude: -22.982234699999996,
   # longitude: -43.199285499999995
@@ -37,6 +38,7 @@ Shop.create!(
   address: 'Rua Gomes Carneiro, 75 - Ipanema/Rio de Janeiro',
   description: 'Banca especializada em frutas frescas.',
   user: user_one,
+  category: "Frutas",
   remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589393426/k478k736n81weyxqwi4ehf45iqvy.jpg"
  )
 
@@ -45,6 +47,7 @@ Shop.create!(
   address: 'Rua Visconde de Pirajá, 550 - Ipanema/Rio de Janeiro',
   description: 'Banca tradicional de verduras.',
   user: user_two,
+  category: "Frutas",
   remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500791/senhorbrocolis_jtqla3.jpg"
  )
 
@@ -53,6 +56,7 @@ Shop.create!(
   address: 'Rua Visconde de Pirajá, 300 - Ipanema/Rio de Janeiro',
   description: 'Banca especializada em frutas e produtos de primeira linha.',
   user: user_two,
+  category: "Verduras",
   remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500792/sorbet_k8jak1.webp"
  )
 
@@ -61,6 +65,7 @@ Shop.create!(
   address: 'Rua Visconde de Pirajá, 575 - Ipanema/Rio de Janeiro',
   description: 'Banca mais antiga do Rio de Janeiro, vende frutas e legumes.',
   user: user_one,
+  category: "Verduras",
   remote_photo_url: "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500791/gil_q6z0mb.jpg"
  )
 
