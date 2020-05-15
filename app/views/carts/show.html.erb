@@ -5,7 +5,7 @@
       <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><%= @cart_sum.length %></span>
       <div class="shopping-cart-total">
         <span class="lighter-text">Total:</span>
-        <span class="main-color-text">$ <%= @total_bill %>.00</span>
+        <span class="main-color-text">R$ <%= @total_bill %>.00</span>
       </div>
     </div> <!--end shopping-cart-header -->
 
@@ -18,8 +18,8 @@
             <%= image_tag "banca.jpg", alt: "Produto", height: 50, width: 50, crop: :fill %>
           <% end %>
           <span class="item-name"><%= cart_product[1][0].product.name %></span>
-          <span class="item-price">$<%= cart_product[1][0].product.price %>.00</span>
-          <span class="item-quantity">Quantity: <%= cart_product[1].length %></span>
+          <span class="item-price">R$<%= cart_product[1][0].product.price %>.00</span>
+          <span class="item-quantity">Quantidade: <%= cart_product[1].length %></span>
         </li>
       <% end %>
     </ol>
