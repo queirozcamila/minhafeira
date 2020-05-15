@@ -13,14 +13,14 @@
         <% end %>
 
         <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
+                    hint: "deixe em branco se não quiser alterar,
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
+                    hint: "precisamos da sua senha atual para confirmar",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :photo, as: :file %>
@@ -33,8 +33,8 @@
 
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "btn btn-primary"%>
-          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-       <%= link_to "Back", :back %>
+          <p>Unhappy? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+       <%= link_to "Voltar", :back %>
       </div>
     <% end %>
 
