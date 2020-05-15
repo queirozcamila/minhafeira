@@ -46,6 +46,7 @@ $light-text: #ABB0BE;
 
 .shopping-cart {
   margin-top: 120px;
+  margin-bottom: 48px;
   // float: right;
   background: white;
   width: 400px;
@@ -140,7 +141,7 @@ $light-text: #ABB0BE;
 
 .btn-cart {
   display: grid;
-  justify-content: right;
+  justify-content: center;
   margin: 0;
   .btn-see-more{
   background-color:$green-feira;
@@ -148,6 +149,12 @@ $light-text: #ABB0BE;
   padding: 2px;
   border-radius: 4px;
   margin-left: 0px;
+  height: 30px;
+  vertical-align: center;
   }
 }
-
+.btn-see-more:hover{
+  font-weight: bold;
+  text-decoration:none;
+  color: white;
+}
