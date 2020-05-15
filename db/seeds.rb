@@ -21,6 +21,7 @@ shop = Shop.create!(
   address: 'Rua Visconde de Pirajá, 120 - Ipanema/Rio de Janeiro',
   description: 'Banca de produtos orgânicos',
   user: user,
+  category: "Frutas",
   latitude: -22.982234699999996,
   longitude: -43.199285499999995
  )
@@ -29,28 +30,32 @@ Shop.create!(
   name: 'Frutas.com',
   address: 'Rua Gomes Carneiro, 75 - Ipanema/Rio de Janeiro',
   description: 'Banca especializada em frutas frescas',
-  user: user
+  user: user,
+  category: "Frutas",
  )
 
 Shop.create!(
   name: 'Sr. Brócolis',
   address: 'Rua Visconde de Pirajá, 550 - Ipanema/Rio de Janeiro',
   description: 'Banca tradicional de verduras',
-  user: user
+  user: user,
+  category: "Verduras",
  )
 
 Shop.create!(
   name: 'La Fruteria',
   address: 'Rua Visconde de Pirajá, 300 - Ipanema/Rio de Janeiro',
   description: 'Banca especializada em frutas e produtos de primeira linha',
-  user: user
+  user: user,
+  category: "Verduras",
  )
 
 Shop.create!(
   name: 'Banca do Seu Gil',
   address: 'Rua Visconde de Pirajá, 575 - Ipanema/Rio de Janeiro',
   description: 'Banca mais antiga do Rio de Janeiro, vende frutas e legumes',
-  user: user
+  user: user,
+  category: "Frutas",
  )
 
 
