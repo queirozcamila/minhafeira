@@ -53,3 +53,17 @@ input.btn.btn-success {
 .btn-primary:hover,.btn-primary:active,.btn-primary:focus {
   background: #43A047;
 }
+
+.btn-search{
+  border-radius: 4px;
+  background-color: #9a1f40;
+  color:white;
+  height: 48px;
+  margin-left:16px;
+  border-color:#9a1f40;
+  opacity: 0.8;
+}
+
+.btn-search:hover{
+font-weight: bold;
+}
