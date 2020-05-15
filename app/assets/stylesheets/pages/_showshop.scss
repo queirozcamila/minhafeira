@@ -1,0 +1,52 @@
+
+.borda {
+  border-bottom: 1px solid #e5edef;
+}
+.store{
+  // border-bottom: 1px solid #e5edef;
+  padding: 20px;
+
+}
+.store-photo {
+    width: 340px;
+    height: 140px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    border-radius: 8px;
+    background-color: #c7c7c7;
+    position: relative;
+    overflow: hidden;
+}
+
+.info-text {
+    padding-left: 30px;
+    width: fit-content;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+}
+ .store h1 {
+  color: #332927;
+    font-size: 26px;
+    font-family: Poppins-SemiBold,Helvetica,Arial,sans-serif;
+    margin-bottom: 5px;
+ }
+
+.store h3{
+  font-size: 12px;
+}
+.store p {
+  font-size: 16px;
+}
+
+.shop-card {
+  margin-inline-start: -23px;
+}
+
+.shop-card-segundo {
+  margin-inline-start: 1em;
+}
+
+.card-body a.fas {
+  color: #ACD572;
+}
