@@ -50,7 +50,7 @@
           <p class="card-text-address"> Preço: R$ <%= product.price %>.00</p>
         </div>
         <div class="card-buttons">
-          <% if current_user %>
+          <% if current_user && (product.shop.user != current_user) %>
           <%= link_to 'Comprar',
               product_cart_products_path(product),
               method: :post,
