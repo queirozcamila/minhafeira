@@ -4,17 +4,15 @@
     <div class="container-form">
        <div class="shop-form">
         <%= simple_form_for [@shop, @product] do |f| %>
-          <%= f.input :name %>
-          <%= f.input :price %>
-          <%= f.input :description %>
-          <%= f.input :category %>
-          <%= f.input :photo, as: :file %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.input :name, label: "Nome" %>
+          <%= f.input :price, label: "Preço" %>
+          <%= f.input :description, label: "Descrição" %>
+          <%= f.input :category, label: "Categoria" %>
+          <%= f.input :photo, label: "Foto", as: :file %>
+          <%= f.button :submit, "Adicionar produto", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-
-
 
 
 <style>
