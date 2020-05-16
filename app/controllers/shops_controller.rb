@@ -19,7 +19,7 @@ class ShopsController < ApplicationController
 
       # Cuidado com possíveis exceções O:
 
-      @shops = @shops.near([lat, lng], 2)
+      @shops = @shops.near([lat, lng], 5)
     end
 
     @shops = @shops.order(created_at: :desc)
