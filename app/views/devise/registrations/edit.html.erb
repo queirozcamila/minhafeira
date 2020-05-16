@@ -5,7 +5,7 @@
         <% if current_user.photo.attached? %>
           <%= cl_image_tag current_user.photo.key, class: "profile", width: 150, height: 150, crop: :thumb, gravity: :face %>
         <% else %>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile" %>
+          <%= image_tag "https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png", class: "profile" %>
         <% end %>
       </div>
     </div>
