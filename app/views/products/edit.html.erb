@@ -5,11 +5,11 @@
   <div class="container-form">
       <div class="shop-form">
       <%= simple_form_for @product, url: product_path(@product) do |f| %>
-        <%= f.input :name %>
-        <%= f.input :price %>
-        <%= f.input :description %>
-        <%= f.input :category %>
-        <%= f.input :photo, as: :file %>
+        <%= f.input :name,  class: "highlight", label: 'Nome do seu produto', error: 'O nome é obrigatório, não se esqueça.' %>
+        <%= f.input :price, class: 'highlight', label: 'Preço', error: 'Opa! Você esqueceu dessa informação.' %>
+        <%= f.input :description, class: 'highlight', label: 'Descreva o seu produto', error: 'Faltou uma descrição sobre a sua loja aqui.'  %>
+        <%= f.input :category, label: 'Categoria', as: :radio_buttons, collection: [['Alimentos'], ['Artesanato'], ['Plantas'], ['Roupas']], error: 'Você precisa escolher uma categoria' %>
+        <%= f.input :photo, as: :file, label: 'Foto' %>
         <%= f.button :submit, class: "btn btn-primary" %>
       <% end %>
     </div>
