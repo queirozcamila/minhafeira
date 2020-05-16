@@ -29,18 +29,17 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 
 import { initAutocomplete } from '../plugins/init_autocomplete.js';
-import { getLocation, showPosition } from '../plugins/init_geolocation.js';
+import { getAndSetLocation } from '../plugins/init_geolocation.js';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-  getLocation();
-  showPosition();
+  getAndSetLocation();
   initAutocomplete();
   initMapbox();
-  initUpdateNavbarOnScroll();
+  // initUpdateNavbarOnScroll();
 });
 
 

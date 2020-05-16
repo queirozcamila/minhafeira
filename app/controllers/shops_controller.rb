@@ -3,15 +3,27 @@ class ShopsController < ApplicationController
   before_action :shop_find, only: [:show, :edit, :update, :destroy]
 
   def index
+    # Recomendo comentar a linha 9 do ApplicationController,
+    # e então comentar essa linha que tá usando policy_scope.
+
+    # Estamos fazendo uma query a mais sem necessidade ~__~
     @shop = policy_scope(Shop).order(created_at: :desc)
+
+    @shops = Shop.geocoded
 
     if params[:query].present?
       @shops = Shop.global_search(params[:query])
-    else
-      @shops = Shop.all
+    elsif params[:lat] && params[:lng]
+      lat = params[:lat].to_f
+      lng = params[:lng].to_f
+
+      # Cuidado com possíveis exceções O:
+
+      @shops = Shop.near([lat, lng], 2)
     end
 
-    @shops = @shops.geocoded # returns flats with coordinates
+    @shops = @shops.order(created_at: :desc)
+
     @markers = @shops.map do |shop|
       {
         lat: shop.latitude,
@@ -20,10 +32,14 @@ class ShopsController < ApplicationController
         image_url: helpers.asset_url('minha_feira_navbar.png')
       }
     end
-    # raise
+
+    respond_to do |format|
+      format.html
+      format.js { render json: @markers }
+    end
   end
 
-  def show;
+  def show
     authorize @shop
   end
 
