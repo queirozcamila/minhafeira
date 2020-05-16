@@ -1,6 +1,9 @@
+<% if @cart.status == "closed" %>
+  <div class="alert-finish alert-primary" role="alert">Obrigado por comprar em Minha Feira, agora é só aguardar seus produtos! </div>
+<% end %>
 
 <div class="container-cart">
-  <div class="shopping-cart">
+  <div class="shopping-cart" style="margin-top: 140px">
     <div class="shopping-cart-header">
       <i class="fa fa-shopping-cart cart-icon"></i><span class="badge"><%= @cart_sum.length %></span>
       <div class="shopping-cart-total">
@@ -32,3 +35,9 @@
     </div>
   </div> <!--end shopping-cart -->
 </div> <!--end container -->
+
+<style>
+  .page-footer {
+    margin-top: 10.8em;
+  }
+</style>
