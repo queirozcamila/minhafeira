@@ -39,7 +39,7 @@ document.addEventListener('turbolinks:load', () => {
   getAndSetLocation();
   initAutocomplete();
   initMapbox();
-  // initUpdateNavbarOnScroll();
+  initUpdateNavbarOnScroll();
 });
 
 

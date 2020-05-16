@@ -7,6 +7,13 @@
   transition: 0.3s background-color ease;
 }
 
+.navbar-lewagon-js{
+  background-color: transparent;
+  justify-content: space-between;
+  margin-bottom: -16px;
+  transition: 0.3s background-color ease;
+}
+
 .navbar-lewagon-green{
  background-color: $green-feira;
 }
