@@ -1,4 +1,6 @@
 require 'uri'
+OpenURI::Buffer.send :remove_const, 'StringMax' if OpenURI::Buffer.const_defined?('StringMax')
+OpenURI::Buffer.const_set 'StringMax', 0
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
@@ -8,6 +10,8 @@ require 'uri'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying last seeded"
+CartProduct.destroy_all
+Cart.destroy_all
 User.destroy_all
 Shop.destroy_all
 Product.destroy_all
@@ -62,7 +66,7 @@ frutascom = Shop.create!(
   category: "Frutas"
  )
 
-url = "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500792/sorbet_k8jak1.webp"
+url = "https://media.gazetadopovo.com.br/viver-bem/2019/09/frutas-emagrecer-768x512-7ce407e0.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 frutascom.photo.attach(io: file, filename: filename)
@@ -82,7 +86,7 @@ file = URI.open(url)
 srbrocolis.photo.attach(io: file, filename: filename)
 srbrocolis.save!
 
-Shop.create!(
+lafruteria = Shop.create!(
   name: 'La Fruteria',
   address: 'Rua Visconde de Pirajá, 300 - Ipanema/Rio de Janeiro',
   description: 'Banca especializada em frutas e produtos de primeira linha.',
@@ -90,11 +94,11 @@ Shop.create!(
   category: "Frutas"
 )
 
-url = "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500792/sorbet_k8jak1.webp"
+url = "https://www.receiteria.com.br/wp-content/uploads/receitas-de-sorbet-1-730x449.jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
-srbrocolis.photo.attach(io: file, filename: filename)
-srbrocolis.save!
+lafruteria.photo.attach(io: file, filename: filename)
+lafruteria.save!
 
 seugil = Shop.create!(
   name: 'Banca do Seu Gil',
@@ -104,7 +108,7 @@ seugil = Shop.create!(
   category: "Legumes"
  )
 
-url = "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500921/banana_zligyu.jpg"
+url = "https://publisher-publish.s3.eu-central-1.amazonaws.com/pb-brasil247/swp/jtjeq9/media/20190521170512_fb1f9b90f81ff2dab444be30a155347fe76c67f37b3331605d3cbc69464221fa.jpeg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 seugil.photo.attach(io: file, filename: filename)
@@ -176,7 +180,7 @@ batata = Product.create!(
   category: "Legumes"
   )
 
-url = "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500795/cenoura_wccd8a.jpg"
+url = "https://img.freepik.com/fotos-gratis/batata-crua-isolada-no-fundo-branco-com-tracado-de-recorte_88281-1368.jpg?size=626&ext=jpg"
 filename = File.basename(URI.parse(url).path)
 file = URI.open(url)
 batata.photo.attach(io: file, filename: filename)
