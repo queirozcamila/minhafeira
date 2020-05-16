@@ -1,23 +1,31 @@
-// Precisamos dessa linha para que a biblioteca Rails esteja
+// Precisamos dessa linha para que o "plugin" Rails esteja
 // disponível
 import Rails from '@rails/ujs';
 
 const getAndSetLocation = () => {
   if (navigator.geolocation) {
-    // Seguinte Caio, a função getCurrentPosition precisa
-    // receber uma função como parâmetro, que vai ser o callback.
+    // Seguinte Caio, quando chamamos a função
+    // navigator.geolocation.getCurrentPosition()
+    // ela espera receber uma função como parâmetro para ser o callback.
 
-    // Como assim? A função que vai ser executada quando e apenas quando
+    // https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+
+
+    // Callback -> função que vai ser executada quando a getCurrentPosition
+    // terminar sua execução, sem travar o restante do código.
+    // Se quiser ler mais, procura por callback asyn
+
+    // Então a callback function vai ser executada apenas quando
     // o browser responder dando permissão, enviando o objeto que nos
     // tutoriais eles geralmente chamam de "position", mas pode ser
-    // qualquer coisa \,,/_
+    // qualquer coisa
 
     // Podemos fazer assim:
     // navigator.geolocation.getCurrentPosition(function() {
     //    qualquer código
     // });
 
-    // Ou como os tutoriais sugerem:
+    // Ou como os tutoriais sugerem, que é mais organizado:
 
     navigator.geolocation.getCurrentPosition(sendCoordsToServer);
   } else {
@@ -29,14 +37,12 @@ const sendCoordsToServer = (position) => {
   const lat = position.coords.latitude;
   const lng = position.coords.longitude;
 
-  // Existe uma biblioteca JS para poder usar código ruby nestes
-  // arquivos JS, para por exemplo usar um shops_path. Mas por
-  // enquanto vamos martelar a URL mesmo!
+  // Com o Rails.ajax, um dos argumentos, o data, é onde enviamos o
+  // que chega no servidor como params. Eu li que tem que enviar sempre
+  // como string nessa biblioteca, mas não testei sem ;) Caso fique curioso.
 
-  // Com o Rails.ajax, os parâmetros enviados como valor da chave
-  // data precisam ser uma string, por isso fiz a transformação.
-
-  // Estou especificando o formato do request pelo .js no final da URL
+  // MATANDO A CHARADA: especifiquei o formato do request pelo .js
+  // no final da URL
 
   Rails.ajax({
     url: "/shops.js",
@@ -69,3 +75,7 @@ const sendCoordsToServer = (position) => {
 }
 
 export { getAndSetLocation };
+
+// OBS: Existe uma biblioteca JS para poder usar código ruby nestes
+// arquivos JS, para por exemplo usar um <%= shops_path %>. Não importei
+// ela no projeto, então por isso martelei a URL no Ajax!
