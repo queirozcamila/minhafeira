@@ -21,8 +21,8 @@
         <% end %>
 
         <%= f.input :password,
-                    hint: "deixe em branco se não quiser alterar,"
-                    required: false,
+                    hint: "deixe em branco se não quiser alterar",
+                    required: true,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: false,
