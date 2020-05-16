@@ -36,7 +36,7 @@
 
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "btn btn-primary"%>
-          <p>Unhappy? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+          <p>Unhappy? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza que quer apagar sua conta?" }, method: :delete %></p>
        <%= link_to "Voltar", :back %>
       </div>
     <% end %>
