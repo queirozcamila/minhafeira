@@ -16,7 +16,7 @@
             <%= link_to "Deletar sua banca",
                shop_path(@shop),
                method: :delete,
-               data: { confirm: "Are you sure?" },
+               data: { confirm: "Tem certeza disso?" },
                class: "fas fa-trash-alt" %>
           <% end %>
         </div>
@@ -57,15 +57,15 @@
               class: "btn btn-danger" %>
           <% end %>
           <% if policy(product).edit? %>
-            <%= link_to 'editar Produto',
+            <%= link_to 'Editar',
                 edit_product_path(product),
                 class: "btn btn-danger"  %>
           <% end %>
           <% if policy(product).destroy? %>
-            <%= link_to "Delete Product",
+            <%= link_to "Retirar",
                product_path(product),
                method: :delete,
-               data: { confirm: "Are you sure?" },
+               data: { confirm: "Deseja retirar o produto?" },
                class: "fas fa-trash-alt" %>
           <% end %>
         </div>

@@ -7,10 +7,10 @@
         <p><%= @shop.name.capitalize %></p>
         <p><%= @shop.description %></p>
         <p><%= @shop.address %></p>
-        <%= link_to "Delete Shop",
+        <%= link_to "Apagar banca",
            shop_path,
            method: :delete,
-           data: { confirm: "Are you sure?" },
+           data: { confirm: "Tem certeza que quer apagá-la?" },
            class: "btn btn-outline-light" %>
       </div>
     </div>
