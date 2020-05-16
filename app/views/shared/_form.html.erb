@@ -5,13 +5,13 @@
           <span class="bar"></span>
         </div>
         <div class="group">
-          <%= f.input :address, class: 'highlight', id: "shop_address", label: 'Endereço', error: 'Opa! Você esqueceu dessa informação.' %>
+          <%= f.input :address, id: "shop_address", label: 'Endereço', error: 'Opa! Você esqueceu dessa informação.' %>
         </div>
         <div class="group">
-          <%= f.input :description, class: 'highlight', label: 'Descreva a sua banca', error: 'Faltou uma descrição sobre a sua loja aqui.' %>
+          <%= f.input :description, label: 'Descreva a sua banca', error: 'Faltou uma descrição sobre a sua loja aqui.' %>
         </div>
         <div>
-          <%= f.input :category, class: 'highlight', label: 'Categoria', as: :radio_buttons, collection: [['Alimentos'], ['Artesanato'], ['Plantas'], ['Roupas']], error: 'Você precisa escolher uma categoria' %>
+          <%= f.input :category, label: 'Categoria', as: :radio_buttons, collection: [['Alimentos'], ['Artesanato'], ['Plantas'], ['Roupas']], error: 'Você precisa escolher uma categoria' %>
         </div>
         <div>
           <%= f.input :photo, as: :file, label: 'Insira uma foto' %>
