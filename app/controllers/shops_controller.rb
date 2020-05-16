@@ -12,14 +12,14 @@ class ShopsController < ApplicationController
     @shops = Shop.geocoded
 
     if params[:query].present?
-      @shops = Shop.global_search(params[:query])
+      @shops = @shops.global_search(params[:query])
     elsif params[:lat] && params[:lng]
       lat = params[:lat].to_f
       lng = params[:lng].to_f
 
       # Cuidado com possíveis exceções O:
 
-      @shops = Shop.near([lat, lng], 2)
+      @shops = @shops.near([lat, lng], 2)
     end
 
     @shops = @shops.order(created_at: :desc)
