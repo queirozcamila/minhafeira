@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :cart_products, only: [:create, :update, :destroy]
   end
   root to: 'shops#index'
+
+  # devise_for :users, controllers: {registrations:'user/registrations'}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

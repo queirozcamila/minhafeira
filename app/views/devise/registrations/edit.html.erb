@@ -1,7 +1,15 @@
 
-<body class="edit-user">
+    <div class="container-profile d-flex justify-content-center">
+      <div><h2>Editar seu perfil</h2></div>
+      <div>
+        <% if current_user.photo.attached? %>
+          <%= cl_image_tag current_user.photo.key, class: "profile", width: 150, height: 150, crop: :thumb, gravity: :face %>
+        <% else %>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "profile" %>
+        <% end %>
+      </div>
+    </div>
 
-    <h2>Editar seu perfil</h2>
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
@@ -13,31 +21,28 @@
         <% end %>
 
         <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
+                    hint: "deixe em branco se não quiser alterar,"
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
                     required: false,
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
+                    hint: "precisamos da sua senha atual para confirmar",
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
         <%= f.input :photo, as: :file %>
       </div>
-      <div>
-       <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, width: 150, height: 150, crop: :thumb, gravity: :face, flags: :layer_apply %>
-       <% end %>
-      </div>
 
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "btn btn-primary"%>
-          <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-       <%= link_to "Back", :back %>
+          <p>Unhappy? <%= link_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+       <%= link_to "Voltar", :back %>
       </div>
     <% end %>
 
-</body>
-
-
+<style>
+ body {
+ background-color: #7CBB59;
+}
+</style>

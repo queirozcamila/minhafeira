@@ -88,7 +88,7 @@ Shop.create!(
   description: 'Banca especializada em frutas e produtos de primeira linha.',
   user: user_two,
   category: "Frutas"
- )
+)
 
 url = "https://res.cloudinary.com/ddvehsujc/image/upload/v1589500792/sorbet_k8jak1.webp"
 filename = File.basename(URI.parse(url).path)

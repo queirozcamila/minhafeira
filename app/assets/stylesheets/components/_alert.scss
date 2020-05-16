@@ -1,6 +1,8 @@
 .alert {
-  position: fixed;
-  bottom: 16px;
-  right: 16px;
+  position: relative;
+  text-align: center;
   z-index: 1000;
+  background-color: #FFDF80;
+  padding-top: 15px;
+  text-weight: bold;
 }
