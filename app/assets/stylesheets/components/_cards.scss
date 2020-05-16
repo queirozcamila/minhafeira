@@ -42,20 +42,23 @@
 
 }
 
-
-
-
 .card-body a:hover {
   font-weight:bold;
 }
 
+.card-description{
+margin-block-start: 28px;
+margin-left: -22px;
+}
+
 .card-text-address{
   font-size: 12px;
+  text-align: left;
 }
 
 
 .card-body img {
-  margin-top: 13px;
+  border-radius: 4px;
 }
 
 .card-buttons {
